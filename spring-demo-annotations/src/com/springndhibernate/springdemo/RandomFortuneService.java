@@ -3,7 +3,7 @@ package com.springndhibernate.springdemo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RandomService implements FortuneService {
+public class RandomFortuneService implements FortuneService {
 
 	@Override
 	public String getFortune() {

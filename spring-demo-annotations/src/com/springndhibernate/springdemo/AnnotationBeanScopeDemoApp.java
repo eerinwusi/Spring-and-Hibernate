@@ -2,16 +2,16 @@ package com.springndhibernate.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class BeansScopeDemoApp {
+public class AnnotationBeanScopeDemoApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beanScope-applicationContext.xml");
+		Coach theCoach = context.getBean("tennisCoach", Coach.class);
 		
-		Coach theCoach = context.getBean("myCoach", Coach.class);
-		
-		Coach alphaCoach = context.getBean("myCoach", Coach.class);
+		Coach alphaCoach = context.getBean("tennisCoach", Coach.class);
 		
 //		check if they are the same
 		boolean result = (theCoach == alphaCoach);
@@ -24,7 +24,6 @@ public class BeansScopeDemoApp {
 		System.out.println("\n Memory location for alphaCoach " + alphaCoach);
 		
 		context.close();
-
 	}
 
 }
