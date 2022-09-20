@@ -17,8 +17,14 @@ public class TennisCoach implements Coach {
 		System.out.println("Empty constructor");
 	}
 	
+//	@Autowired
+//	public void setFortuneService(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
+	
 	@Autowired
-	public void setFortuneService(FortuneService fortuneService) {
+	public void anyMethod(FortuneService fortuneService) {
+		System.out.println("You can use any method for autowiring");
 		this.fortuneService = fortuneService;
 	}
 
