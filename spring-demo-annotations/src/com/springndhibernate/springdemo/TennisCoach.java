@@ -1,12 +1,14 @@
 package com.springndhibernate.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value = "prototype")
 public class TennisCoach implements Coach {
 	
 	@Autowired
@@ -43,6 +45,16 @@ public class TennisCoach implements Coach {
 	public String getDailyFortune() {
 		// TODO Auto-generated method stub
 		return fortuneService.getFortune();
+	}
+	
+	@PostConstruct
+	public void start() {
+		System.out.println("Starting.....");
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("Destroying....");
 	}
 
 }
