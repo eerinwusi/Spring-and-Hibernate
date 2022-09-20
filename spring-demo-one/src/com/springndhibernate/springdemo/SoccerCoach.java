@@ -20,5 +20,13 @@ public class SoccerCoach implements Coach {
 		// use fortuneService to get a fortune
 		return fortuneService.getFortune();
 	}
+	
+	public void startup() {
+		System.out.println("Starting.....");
+	}
+	
+	public void destroy() {
+		System.out.println("Destroying...");
+	}
 
 }
