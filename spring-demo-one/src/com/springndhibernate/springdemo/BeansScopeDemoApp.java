@@ -17,11 +17,11 @@ public class BeansScopeDemoApp {
 		boolean result = (theCoach == alphaCoach);
 		
 //		print results
-		System.out.println("\n Pointing to the same object" + result);
+		System.out.println("\n Pointing to the same object " + result);
 		
-		System.out.println("\n Memory location for theCoach" + theCoach);
+		System.out.println("\n Memory location for theCoach " + theCoach);
 		
-		System.out.println("\n Memory location for alphaCoach" + alphaCoach);
+		System.out.println("\n Memory location for alphaCoach " + alphaCoach);
 
 	}
 
