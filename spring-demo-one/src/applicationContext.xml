@@ -23,6 +23,11 @@
 		
 		<!-- setter dependency injector -->
 		<property name="fortuneService" ref="myFortune" />
+		
+		<!-- inject literal setters -->
+		<property name="Email" value="winning@email.com" />
+		<property name="Team" value="Winning Team" />
 	</bean>
+	
 
 </beans>
