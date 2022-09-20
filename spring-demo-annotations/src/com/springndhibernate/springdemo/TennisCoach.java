@@ -12,6 +12,10 @@ public class TennisCoach implements Coach {
 	public TennisCoach(FortuneService theFortuneService) {
 		fortuneService = theFortuneService;
 	}
+	
+	public TennisCoach() {
+		System.out.println("Empty constructor");
+	}
 
 	@Override
 	public String getDailyWorkout() {
