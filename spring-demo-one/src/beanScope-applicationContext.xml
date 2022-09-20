@@ -6,11 +6,9 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
+
 	
-	<!-- load the properties file: sport.properties -->
-	<!-- <context:property-placeholder location="classpath:sport.properties"/>  -->	
-	
-	<bean id="myFortune" 
+	<bean id="myFortuneService" 
 		class="com.springndhibernate.springdemo.HappyFortuneService">
 	</bean>
 	
@@ -18,18 +16,7 @@
 		class="com.springndhibernate.springdemo.SoccerCoach">
 		
 		<!-- set up constructor injection -->
-		<constructor-arg ref="myFortune" />
-	</bean>
-	
-	<bean id="myCricketCoach"
-		class="com.springndhibernate.springdemo.CricketCoach">
-		
-		<!-- setter dependency injector -->
-		<property name="fortuneService" ref="myFortune" />
-		
-		<!-- inject literal setters -->
-		<property name="Email" value="${foo.email}" />
-		<property name="Team" value="${foo.team}" />
+		<constructor-arg ref="myFortuneService" />
 	</bean>
 	
 
