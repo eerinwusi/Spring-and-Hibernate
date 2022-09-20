@@ -8,13 +8,18 @@ public class TennisCoach implements Coach {
 	
 	private FortuneService fortuneService; 
 	
-	@Autowired
-	public TennisCoach(FortuneService theFortuneService) {
-		fortuneService = theFortuneService;
-	}
-	
+//	@Autowired
+//	public TennisCoach(FortuneService theFortuneService) {
+//		fortuneService = theFortuneService;
+//	}
+
 	public TennisCoach() {
 		System.out.println("Empty constructor");
+	}
+	
+	@Autowired
+	public void setFortuneService(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
 	}
 
 	@Override
