@@ -34,6 +34,11 @@ public class UpdateStudentDemo {
 			System.out.println("Updating student");
 			myStudent.setFirstName("Scooby");
 			
+//			update email for all students
+			System.out.println("Update email for all students");
+			
+			session.createQuery("update Student set email='foo@luv2code.com'").executeUpdate();
+			
 //			no need to save object again since it has been saved, just commit
 //			commit the transaction
 			session.getTransaction().commit();
