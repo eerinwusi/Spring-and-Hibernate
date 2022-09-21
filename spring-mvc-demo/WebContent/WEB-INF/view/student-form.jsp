@@ -22,6 +22,15 @@
 		
 		<br>
 		
+		Favorite language:
+		
+		Java <form:radiobutton path="favoriteLanguage" value="Java"/>
+		C# <form:radiobutton path="favoriteLanguage" value="C#"/>
+		Ruby <form:radiobutton path="favoriteLanguage" value="Ruby"/>
+		PHP <form:radiobutton path="favoriteLanguage" value="PHP"/>
+		
+		<br>
+		
 		Last name: <form:input path="lastName" />
 		
 		<input type="submit" value="Submit" />
