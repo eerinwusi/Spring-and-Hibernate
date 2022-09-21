@@ -31,6 +31,14 @@
 		
 		<br>
 		
+		Operating Systems:
+		
+		Linux <form:checkbox path="operatingSystems" value="Linux"/>
+		Mac <form:checkbox path="operatingSystems" value="Mac"/>
+		Windows <form:checkbox path="operatingSystems" value="Windows"/>
+		
+		<br>
+		
 		Last name: <form:input path="lastName" />
 		
 		<input type="submit" value="Submit" />
