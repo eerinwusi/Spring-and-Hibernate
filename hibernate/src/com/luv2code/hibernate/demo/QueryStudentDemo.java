@@ -32,12 +32,19 @@ public class QueryStudentDemo {
 //			display the students
 			displayStudents(theStudents);
 			
-//			query students lastname='Doe'
-			List<Student> theStudent = session.createQuery("from Student s where s.lastName='Doe'").getResultList();
+//			query students lastName='Doe'
+			theStudents = session.createQuery("from Student s where s.lastName='Doe'").getResultList();
 			
 //			display the students
 			System.out.println("Students with last name 'Doe'");
-			displayStudents(theStudent);
+			displayStudents(theStudents);
+			
+//			query students: lastName='Doe' OR firstName='Mark'
+			theStudents = session.createQuery("from Student s where s.lastName='Doe' OR s.firstName='Mark'").getResultList();
+			
+//			display the students
+			System.out.println("Students with last name 'Doe' OR first name 'Mark'");
+			displayStudents(theStudents);
 			
 //			commit the transaction
 			session.getTransaction().commit();
