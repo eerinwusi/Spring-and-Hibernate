@@ -10,7 +10,7 @@ import com.luv2code.hibernate.demo.entity.InstructorDetail;
 import com.luv2code.hibernate.demo.entity.Review;
 import com.luv2code.hibernate.demo.entity.Student;
 
-public class CreateCourseAndStudentsDemo {
+public class AddCoursesForMark {
 
 	public static void main(String[] args) {
 		
@@ -32,22 +32,25 @@ public class CreateCourseAndStudentsDemo {
 //			start a transaction
 			session.beginTransaction();
 
-//			get the student Mark from the db
-			int theId = 2;
-			Student student = session.get(Student.class, theId);
+//			create a course
+			Course course = new Course("Pacman - How to score one million points");
 			
-//			create more courses
-			Course course = new Course("Rubik's cube");
-			Course course1 = new Course("Atari 2600 - Game Development");
-			
-//			add student to courses
-			course.addStudent(student);
-			course1.addStudent(student);
-			
-//			save courses
-			System.out.println("Saving....");
+//			save the course ... and leverage the cascade all
+			System.out.println("Saving...");
 			session.save(course);
-			session.save(course1);
+			
+//			create a student
+			Student student = new Student("John", "Doe", "john@luv2code.com");
+			Student student1 = new Student("Mark", "Ma", "mark@luv2code.com");
+					
+//			add student to the course
+			course.addStudent(student);
+			course.addStudent(student1);
+			
+//			save the student
+			System.out.println("Saving....");
+			session.save(student);
+			session.save(student1);
 
 //			commit the transaction
 			session.getTransaction().commit();
