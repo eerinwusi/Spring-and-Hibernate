@@ -3,13 +3,13 @@ package com.luv2code.hibernate.demo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 import com.luv2code.hibernate.demo.entity.Course;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
+import com.luv2code.hibernate.demo.entity.Review;
 
-public class FetchJoinDemo {
+public class CreateCourseAndReviewsDemo {
 
 	public static void main(String[] args) {
 		
@@ -19,6 +19,7 @@ public class FetchJoinDemo {
 								.addAnnotatedClass(Instructor.class)
 								.addAnnotatedClass(InstructorDetail.class)
 								.addAnnotatedClass(Course.class)
+								.addAnnotatedClass(Review.class)
 								.buildSessionFactory();
 		
 //		create a session
@@ -28,23 +29,18 @@ public class FetchJoinDemo {
 			
 //			start a transaction
 			session.beginTransaction();
+
+//			create a course
+			Course course = new Course("Pacman - How to score one million points");
 			
-//			get instructor from db
-			int theId = 1;	
+//			add some reviews
+			course.addReview(new Review("Great course"));
+			course.addReview(new Review("Great course"));
+			course.addReview(new Review("Great course"));
 			
-			Query<Instructor> query = session.createQuery("select i from Instructor i JOIN FECTH "
-					+ "i.courses where i.id=:instructorId");
-			
-//			set parameter query
-			query.setParameter("instructorId", theId);
-			
-//			execute query and get instructor
-			Instructor instructor = query.getSingleResult();
-			
-			System.out.println("Instructor: " + instructor);
-			
-//			get instructor courses
-			System.out.println("Courses: " + instructor.getCourses());
+//			save the course ... and leverage the cascade all
+			System.out.println("Saving...");
+			session.save(course);
 
 //			commit the transaction
 			session.getTransaction().commit();
