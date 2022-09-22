@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "instructor")
+@Table(name = "course")
 public class Course {
 //	annotate the class as an entity class
 	
@@ -35,6 +35,10 @@ public class Course {
 	private Instructor instructor;
 	
 	private String title;
+	
+	public Course() {
+		
+	}
 
 	public Course(String title) {
 		this.title = title;

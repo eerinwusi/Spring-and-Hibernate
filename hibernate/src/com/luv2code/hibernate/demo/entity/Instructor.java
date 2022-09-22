@@ -39,14 +39,6 @@ public class Instructor {
 	
 	@Column(name = "first_name")
 	private String firstName;
-	
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
 
 	@Column(name = "last_name")
 	private String lastName;
@@ -115,6 +107,14 @@ public class Instructor {
 
 	public void setInstructorDetail(InstructorDetail instructorDetail) {
 		this.instructorDetail = instructorDetail;
+	}
+	
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 	
 //	Add convenience methods for bi-directional relationships
