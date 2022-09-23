@@ -21,7 +21,7 @@ public class MainDemoApp {
 		account.addAccount();
 		
 //		call the business method
-		member.addAccount();
+		member.addSillyMember();
 		
 //		close the context
 		context.close();
