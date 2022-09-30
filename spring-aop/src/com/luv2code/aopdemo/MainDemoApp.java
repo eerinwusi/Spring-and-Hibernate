@@ -20,9 +20,11 @@ public class MainDemoApp {
 //		call the business method
 		Account theAccount = new Account();
 		account.addAccount(theAccount, true);
+		account.doWork();
 		
 //		call the business method
 		member.addSillyMember();
+		member.Sleep();
 		
 //		close the context
 		context.close();
