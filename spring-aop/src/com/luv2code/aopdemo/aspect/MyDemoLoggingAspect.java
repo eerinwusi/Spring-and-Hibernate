@@ -3,9 +3,11 @@ package com.luv2code.aopdemo.aspect;
 import java.util.List;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -35,6 +37,31 @@ public class MyDemoLoggingAspect {
 	
 	
 //	add a new advice for @AfterReturning
+	
+	
+	@Around("execution(* com.luv2code.aopdemo.service.*.getFortune(..))")
+	public Object aroundGetFortune(
+			ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+//		print out method we are advising on
+		String method = proceedingJoinPoint.getSignature().toShortString();
+		System.out.println("\n======>>> Executing @AfterReturning on method: " + method);
+		
+//		get begin timestamp
+		long begin = System.currentTimeMillis();
+		
+//		execute method
+		Object result = proceedingJoinPoint.proceed();
+		
+//		get end timestamp
+		long end = System.currentTimeMillis();
+		
+//		compute duration and display
+		long duration = end - begin;
+		System.out.println("\n======>>>> Duration: " + duration / 1000.0 + " seconds");
+		
+		return result;
+	}
+	
 	
 	@AfterReturning(
 			pointcut="execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))",
