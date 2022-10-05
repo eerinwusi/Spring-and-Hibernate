@@ -21,4 +21,12 @@ public class TrafficFortuneService {
 //		return a fortune
 		return "Expect heavy traffic this morning";
 	}
+
+	public String getFortune(boolean tripWire) {
+		if (tripWire) {
+			throw new RuntimeException("Ongoing Construction. Highway is blocked!!");
+		}
+		
+		return "Expect heavy traffic this morning";
+	}
 }
