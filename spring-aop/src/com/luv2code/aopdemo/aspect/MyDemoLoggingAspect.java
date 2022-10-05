@@ -64,6 +64,9 @@ public class MyDemoLoggingAspect {
 //			give user a custom message
 			result = "Road construction! But no worries, your private AOP helicopter"
 					+ "is on the way";
+			
+//			rethrow exception
+			throw e;
 		}
 		
 //		get end timestamp
