@@ -26,22 +26,21 @@
 			<version>${springframework.version}</version>
 		</dependency>
 
-		<!-- spring security web -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+		<!-- Spring Security -->
+		<!-- spring-security-web and spring-security-config -->
+		
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-core</artifactId>
+		    <artifactId>spring-security-web</artifactId>
 		    <version>${springsecurity.version}</version>
 		</dependency>
-
-		<!-- spring security config -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-config</artifactId>
 		    <version>${springsecurity.version}</version>
-		</dependency>
-
+		</dependency>	
+		
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
