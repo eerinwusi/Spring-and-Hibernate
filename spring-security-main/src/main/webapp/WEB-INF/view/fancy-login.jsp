@@ -94,6 +94,14 @@
 								<button type="submit" class="btn btn-success">Login</button>
 							</div>
 						</div>
+						
+						<!-- Manually adding tokens for CSRF (Cross-Site Request Forgery) 
+							<input type="hidden"
+								   name="${_csrf.parameterName}"
+								   value="${_csrf.token}"/>
+						
+						-->
+						
 
 					</form:form>
 
