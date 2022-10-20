@@ -24,24 +24,25 @@
 		Role(s): <security:authentication property="principal.authorities" />
 	</p>
 	
+	<security:authorize access="hasRole('MANAGER')">
+		<!-- Add a link to point to /leaders ... this is for the managers -->
+	
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
+			(Only for Manager Peeps)
+		</p>
+	</security:authorize>
+	
 	<hr>
 	
-	<!-- Add a link to point to /leaders ... this is for the managers -->
+	<security:authorize access="hasRole('ADMIN')">
+		<!-- Add a link to point to /systems ... this is for the admins -->
 	
-	<p>
-		<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
-		(Only for Manager Peeps)
-	</p>
-	
-	<hr>
-	
-	<!-- Add a link to point to /systems ... this is for the admins -->
-	
-	<p>
-		<a href="${pageContext.request.contextPath}/systems">Admin Meeting</a>
-		(Only for Admin Peeps)
-	</p>
-	
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">Admin Meeting</a>
+			(Only for Admin Peeps)
+		</p>
+	</security:authorize>
 	
 	<!-- Add logout button -->
 	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
