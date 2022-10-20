@@ -46,6 +46,19 @@
 		    <version>${springsecurity.version}</version>
 		</dependency>
 		
+		<!-- Add MySQL and C3P0 support-->
+		<dependency>
+			<groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.45</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.mchange</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.5.2</version>
+		</dependency>
+		
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -53,7 +66,11 @@
 			<version>3.1.0</version>
 		</dependency>
 		
-		
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>javax.servlet</groupId>
