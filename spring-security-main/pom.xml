@@ -16,19 +16,17 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-
+	
 	<dependencies>
-
 		<!-- Spring MVC support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-
+		
 		<!-- Spring Security -->
 		<!-- spring-security-web and spring-security-config -->
-		
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-web</artifactId>
@@ -54,30 +52,24 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-
+		
+		
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
-
+	
 	<!-- TO DO: Add support for Maven WAR Plugin -->
-
 	<build>
 		<finalName>spring-security-demo</finalName>
 	
@@ -92,6 +84,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-
 </project>
