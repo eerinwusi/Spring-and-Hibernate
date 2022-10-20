@@ -21,23 +21,26 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		auth.inMemoryAuthentication()
 			.withUser(users.username("john").password("test123").roles("EMPLOYEE"))
-			.withUser(users.username("mary").password("test123").roles("EMPLOYEE, MANAGER"))
-			.withUser(users.username("susan").password("test123").roles("EMPLOYEE, ADMIN"));
+			.withUser(users.username("mary").password("test123").roles("EMPLOYEE", "MANAGER"))
+			.withUser(users.username("susan").password("test123").roles("EMPLOYEE", "ADMIN"));
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-				.anyRequest().authenticated()
+			.antMatchers("/").hasRole("EMPLOYEE") // this restricts access based on roles
+			.antMatchers("/leaders/**").hasRole("MANAGER") // only managers can access this end point.
+			.antMatchers("/systems/**").hasRole("ADMIN") // only admins can access this end point.
+//				anyRequest().authenticated() - this allows any user that is authenticated and does not restrict access based on roles
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage")
 				.loginProcessingUrl("/authenticateTheUser")
 				.permitAll()
 //				log the user out and return to login page
-				.and()
-				.logout().permitAll();
+			.and()
+			.logout().permitAll();
 	}
 	
 	
